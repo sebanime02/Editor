@@ -2,6 +2,7 @@ var  imageData;
 var data;
 var imageData1;
 var data1;
+var imagen="Koala.jpg";
 
 //inicio de jQuery
 
@@ -14,12 +15,14 @@ function inicio (){
 	$("#blue").change(ajustarAzul);
 	$("#brillo").change(AjustarBrillo);
 	$("#negative").click(AjustarNegativo);
+	$("#file").change(cargar);
 }
 
 function dibujar (){
 	var img = new Image();
-	img.src = "Koala.jpg";   //ruta de la imagen
-	
+
+	img.src = imagen;   //ruta de la imagen
+     
 	var canvas = document.getElementById("grafico");
 	var context = canvas.getContext("2d");
 
@@ -30,6 +33,25 @@ function dibujar (){
 
 	data = imageData.data;
 }
+
+ function cargar() {
+    var reader = new FileReader();
+reader.onload = function(event) {
+    var dataUri = event.target.result,
+        context = document.getElementById("grafico").getContext("2d"),
+        img     = new Image();
+ 
+    // wait until the image has been fully processed
+    img.onload = function() {
+        context.drawImage(img, 0, 0);
+    };
+    img.src = dataUri;
+    imagen= dataUri;
+};
+
+reader.readAsDataURL(file);
+  }
+
 
 function ajustarRojo(){
 	var canvas = document.getElementById("grafico");
