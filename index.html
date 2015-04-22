@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Editor Fotos</title>
+
+      <link rel="stylesheet"type="text/css" href="estilos.css"/>
+      <script type="text/javascript" src="jquery-1.11.2.js"></script>
+      <script type="text/javascript" src="editor.js"></script>
+  
+ 
+</head>
+
+
+<body>
+
+         <form>
+             Rojo
+		     <input type="range" name="red" id="red" min="-255" max="255" step="5"></br>
+
+		     Verde
+		     <input type="range" name="green" id="green" min="-255" max="255" step="5"></br>
+		     Azul
+		     <input type="range" name="blue" id="blue" min="-255" max="255" step="5"></br>
+		     Brillo
+             <input type="range" name="brillo" id="brillo" min="-255" max="255" step="5"></br>
+             Negativo
+             <input type="button" name="negative" id="negative" value="Negativo"></br>
+		 </form>
+          <canvas  id="grafico"></canvas> 
+</body>
+</html>
